@@ -1,0 +1,16 @@
+<%- include ('partial/header'); -%>
+
+<h1>Tully's Adventures in Wonderland</h1>
+<p>Down the rabbit hole we go! Come with me and you'll be in a world of pure imagination.</p>
+<p><%= homeText %></p>
+
+    <% blogPosts.forEach(function(blogPost) { %>
+    <div class="box">
+      <h2><%= blogPost.title %></h2>
+      <p class="text-overflow-clamp"><%= blogPost.message.substring(0,500) + "..." %>
+      <a class="expand" href="./posts/<%=blogPost._id%>">Read more</a></p>    
+    </div>
+    <% }) %> 
+
+
+<%- include ('partial/footer'); -%>
