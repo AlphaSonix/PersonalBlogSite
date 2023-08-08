@@ -48,7 +48,10 @@ const posts = await Post.find();
 
 if (posts.length === 0) {
     Post.insertMany(postArr)
-    res.redirect("/");
+    // .then(()=>{
+        
+    //    res.redirect("/");  
+    // })
 }
 res.render('home', {homeText: homeStartingContent, blogPosts: posts});
 } catch(e) {
