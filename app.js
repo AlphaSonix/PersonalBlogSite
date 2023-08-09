@@ -21,7 +21,7 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-mongoose.connect('mongodb://127.0.0.1/blogDB')
+mongoose.connect('mongodb+srv://jermain-admin:pBEY2qxOXmLgfBPm@cluster0.4bae75f.mongodb.net/blogDB')
 .then(() => console.log('Connected!'));
 
 const postSchema = new mongoose.Schema ({
