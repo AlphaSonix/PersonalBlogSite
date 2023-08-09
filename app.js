@@ -7,6 +7,7 @@ import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { mongoose } from 'mongoose';
 import pkg from 'lodash';
+import 'dotenv/config';
 
 const homeStartingContent = "Writer. Programmer. Tea Drinker. Just Ken.";
 const aboutContent = "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
@@ -21,7 +22,7 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-mongoose.connect('mongodb+srv://jermain-admin:pBEY2qxOXmLgfBPm@cluster0.4bae75f.mongodb.net/blogDB')
+mongoose.connect('mongodb+srv://' + process.env.DB_USERNAME + ':' + process.env.DB_PASSOWRD + '@cluster0.4bae75f.mongodb.net/blogDB')
 .then(() => console.log('Connected!'));
 
 const postSchema = new mongoose.Schema ({
