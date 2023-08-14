@@ -22,12 +22,15 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-try {
- mongoose.connect('mongodb+srv://' + process.env.DB_USERNAME + ':' + process.env.DB_PASSWORD + '@cluster0.4bae75f.mongodb.net/blogDB')
-.then(() => console.log('Connected!'));   
-} catch(e) {
-    console.log(e);
+// mongoose.connect('mongodb+srv://' + username + ':' + password + '@cluster0.4bae75f.mongodb.net/blogDB')
+// .then(() => console.log('Connected!'));   
+
+main().catch(err=>console.log(err));
+async function main() {
+    await mongoose.connect(process.env.DB_MONGO);
 }
+
+//.then(() => console.log('Connected!'));   
 
 const postSchema = new mongoose.Schema ({
     title: {
